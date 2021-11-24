@@ -26,12 +26,12 @@ echo '/swapfile none swap sw 0 0' | sudo tee -a /etc/fstab
 
 ## SSH Folder Permissions
 > <html>        Path 	                         Permission<br>
- .ssh directory (code) 	            0700 (drwx------)<br>
- private keys (ex: id_rsa) (code) 	  0600 (-rw-------)<br>
- config 	                            0600 (-rw-------)<br>
- public keys (*.pub ex: id_rsa.pub) 	0644 (-rw-r--r--)<br>
- authorized_keys (code) 	            0644 (-rw-r--r--)<br>
- known_hosts 	                      0644 (-rw-r--r--)<br></html>
+>.ssh directory (code) 	            0700 (drwx------)<br>
+>private keys (ex: id_rsa) (code) 	  0600 (-rw-------)<br>
+>config 	                            0600 (-rw-------)<br>
+>public keys (*.pub ex: id_rsa.pub) 	0644 (-rw-r--r--)<br>
+>authorized_keys (code) 	            0644 (-rw-r--r--)<br>
+>known_hosts 	                      0644 (-rw-r--r--)<br></html>
 
 ## Creating SSH-Keys
 > SSH keys will allow us to securely log into machine without using a password and ultimately allow you to disable all password logins on your remote machine
