@@ -24,4 +24,39 @@ echo '/swapfile none swap sw 0 0' | sudo tee -a /etc/fstab
 # Configuring SSH for Management Device
 > In order to effeciently manage multiple devices it is best to setup an SSH host device that can quickly connect to different VPS's and Local Hosts
 
+## SSH Folder Permissions
+>         Path 	                         Permission
+> .ssh directory (code) 	            0700 (drwx------)
+> private keys (ex: id_rsa) (code) 	  0600 (-rw-------)
+> config 	                            0600 (-rw-------)
+> public keys (*.pub ex: id_rsa.pub) 	0644 (-rw-r--r--)
+> authorized_keys (code) 	            0644 (-rw-r--r--)
+> known_hosts 	                      0644 (-rw-r--r--)
+
 ## Creating SSH-Keys
+> SSH keys will allow us to securely log into machine without using a password and ultimately allow you to disable all password logins on your remote machine
+
+```
+# Create ".ssh" directory and assign it the proper permissions
+mkdir ~/.ssh
+sudo chmod 700 ~/.ssh
+cd ~/.ssh
+
+# Generate a new Private / Public Key pair, it is best to have individual keys for each machine
+ssh-keygen
+
+# Remove the potentially sensitive information at the end of the public key (username / host of creator)
+sudo sed -i 's/=.*./=/g' "{key_you_just_created}".pub
+
+# Transfer the public key to your remote server or VPS
+ssh-copy-id -p "{ssh_port_of_distant_end}" -i ~/.ssh/"{key_you_just_created}".pub "{remote_user}"@"{remote_IP_address}"
+```
+
+## Generating SSH Config File
+> SSH Config files will allow you to save multiple SSH flags into a single alias name making your job easier
+
+```
+# Generate the SSH Config file
+touch ~/.ssh/config
+
+
