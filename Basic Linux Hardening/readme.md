@@ -33,7 +33,7 @@ echo '/swapfile none swap sw 0 0' | sudo tee -a /etc/fstab
 >authorized_keys (code) 	            0644 (-rw-r--r--)
 >known_hosts 	                        0644 (-rw-r--r--)</pre></html>
 
-## Creating SSH-Keys
+## Creating SSH Keys
 > SSH keys will allow us to securely log into machine without using a password and ultimately allow you to disable all password logins on your remote machine
 
 ```bash
