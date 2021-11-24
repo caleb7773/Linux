@@ -56,7 +56,42 @@ ssh-copy-id -p "{ssh_port_of_distant_end}" -i ~/.ssh/"{key_you_just_created}".pu
 > SSH Config files will allow you to save multiple SSH flags into a single alias name making your job easier
 
 ```bash
-# Generate the SSH Config file
+# Generate the SSH Config file and assign it proper permissions
 touch ~/.ssh/config
+sudo chmod 600 ~/.ssh/config
 
+# Create the initial file "THIS WILL OVERWRITE AN EXISTING FILE"!
+sudo tee ~/.ssh/config << EOF
+
+### default for all ###
+Host *
+     ForwardAgent no
+     ForwardX11 no
+     ForwardX11Trusted yes
+     User root
+     Port 22
+     Protocol 2
+     ServerAliveInterval 60
+     ServerAliveCountMax 30
+     
+ ### Host Specific Overrides ###
+ EOF
+
+# Create Host specific overrides to use different ports or usernames
+sudo tee -a ~/.ssh/config << EOF
+
+Host bastion
+     Hostname 192.168.1.2
+     User administrator
+     Port 22
+     IdentityFile ~/.ssh/bastian.key
+     
+Host nas01
+     HostName 192.168.1.100
+     User myusername
+     Port 22
+     IdentityFile ~/.ssh/nas01.key
+     ProxyJump bastion
+EOF
+```
 
