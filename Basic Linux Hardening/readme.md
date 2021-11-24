@@ -125,6 +125,7 @@ sudo systemctl restart ssh
 > We will not be using IPv6 so we can disable it
 ```bash
 # Insert "ipv6.disable" as the first arguement in the /etc/default/grub file
+# We'll use sed to find and replace the needed information
 sudo sed -i 's/GRUB_CMDLINE_LINUX_DEFAULT="/GRUB_CMDLINE_LINUX_DEFAULT="ipv6.disable=1 /g' /etc/default/grub
 sudo sed -i 's/GRUB_CMDLINE_LINUX="/GRUB_CMDLINE_LINUX="ipv6.disable=1 /g' /etc/default/grub
 
