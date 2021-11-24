@@ -121,3 +121,16 @@ sudo sed -i \"s/.*PasswordAuthentication .*/PasswordAuthentication no/g\" /etc/s
 sudo systemctl restart ssh
 ```
 
+# Disable IPv6 Networking
+> We will not be using IPv6 so we can disable it
+```bash
+# Insert "ipv6.disable" as the first arguement in the /etc/default/grub file
+sudo sed -i 's/GRUB_CMDLINE_LINUX_DEFAULT="/GRUB_CMDLINE_LINUX_DEFAULT="ipv6.disable=1 /g' /etc/default/grub
+sudo sed -i 's/GRUB_CMDLINE_LINUX="/GRUB_CMDLINE_LINUX="ipv6.disable=1 /g' /etc/default/grub
+
+# Apply the update
+sudo update-grub
+
+# Restart the box with all the current IPv6 networking disabled
+sudo reboot
+````
