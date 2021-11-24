@@ -20,3 +20,8 @@ sudo swapon --show
 # Permanently mount the SWAP file with /etc/fstab
 echo '/swapfile none swap sw 0 0' | sudo tee -a /etc/fstab
 ```
+
+# Configuring SSH for Management Device
+> In order to effeciently manage multiple devices it is best to setup an SSH host device that can quickly connect to different VPS's and Local Hosts
+
+## Creating SSH-Keys
