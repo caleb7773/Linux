@@ -75,7 +75,7 @@ Host *
      ServerAliveCountMax 30
      
  ### Host Specific Overrides ###
- EOF
+EOF
 
 # Create Host specific overrides to use different ports or usernames
 sudo tee -a ~/.ssh/config << EOF
