@@ -98,7 +98,7 @@ EOF
 ## Hardening SSH Server
 > In order to prevent our remote server from being so susceptible to attacks we can harden it a bit
 
-```
+```bash
 # First we need to install openssh
 sudo apt update && sudo apt upgrade -y & sudo apt install openssh-server -y
 
