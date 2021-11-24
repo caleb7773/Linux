@@ -95,3 +95,29 @@ Host nas01
 EOF
 ```
 
+## Hardening SSH Server
+> In order to prevent our remote server from being so susceptible to attacks we can harden it a bit
+
+```
+# First we need to install openssh
+sudo apt update && sudo apt upgrade -y & sudo apt install openssh-server -y
+
+# Second we need to modify the config file if you want to modify it manually otherwise skip this
+sudo vim /etc/ssh/sshd_config
+
+# Change the default port to a new port
+sudo sed -i \"s/.*Port .*/Port "{ssh_port}"/g\" /etc/ssh/sshd_config
+
+# Force Public Key Authentication
+sudo sed -i \"s/.*PubkeyAuthentication .*/PubkeyAuthentication yes/g\" /etc/ssh/sshd_config
+
+# Deny Root Users SSH login
+sudo sed -i \"s/.*PermitRootLogin .*/PermitRootLogin no/g\" /etc/ssh/sshd_config
+
+# Disallow password authentication from SSH connection
+sudo sed -i \"s/.*PasswordAuthentication .*/PasswordAuthentication no/g\" /etc/ssh/sshd_config
+
+# Restart the SSH Service to apply the new configuration
+sudo systemctl restart ssh
+```
+
