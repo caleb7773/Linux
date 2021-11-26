@@ -34,15 +34,27 @@ echo '/swapfile none swap sw 0 0' | sudo tee -a /etc/fstab
           <td>.ssh directory (code)</td>
           <td>0700 (drwx------)</td>
      </tr>
-     <tr></tr>
-          </table>
-          
-private keys (ex: id_rsa) (code) 	     0600 (-rw-------)
-config 	                              0600 (-rw-------)
-public keys (*.pub ex: id_rsa.pub) 	0644 (-rw-r--r--)
-authorized_keys (code) 	               0644 (-rw-r--r--)
-known_hosts 	                         0644 (-rw-r--r--)
-</pre></html>
+     <tr>
+          <td>private keys (ex: id_rsa) (code)</td>
+          <td>0600 (-rw-------)</td>
+     </tr>
+     <tr>
+          <td>config</td>
+          <td>0600 (-rw-------)</td>
+     </tr>
+     <tr>
+          <td>public keys (*.pub ex: id_rsa.pub)</td>
+          <td>0644 (-rw-r--r--)</td>
+     </tr>
+     <tr>
+          <td>authorized_keys (code)</td>
+          <td>0644 (-rw-r--r--)</td>
+     </tr>
+     <tr>
+          <td>known_hosts</td>
+          <td>0644 (-rw-r--r--)</td>
+     </tr>
+</table>
 
 ## Creating SSH Keys
 > SSH keys will allow us to securely log into machine without using a password and ultimately allow you to disable all password logins on your remote machine
