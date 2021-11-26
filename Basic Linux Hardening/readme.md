@@ -25,8 +25,18 @@ echo '/swapfile none swap sw 0 0' | sudo tee -a /etc/fstab
 > In order to effeciently manage multiple devices it is best to setup an SSH host device that can quickly connect to different VPS's and Local Hosts
 
 ## SSH Folder Permissions
-<html><pre>        Path 	                         Permission<br>
-.ssh directory (code) 	               0700 (drwx------)
+<table>
+     <tr>
+          <td>Path</td>
+          <td>Permission</td>
+     </tr>
+     <tr>
+          <td>.ssh directory (code)</td>
+          <td>0700 (drwx------)</td>
+     </tr>
+     <tr></tr>
+          </table>
+          
 private keys (ex: id_rsa) (code) 	     0600 (-rw-------)
 config 	                              0600 (-rw-------)
 public keys (*.pub ex: id_rsa.pub) 	0644 (-rw-r--r--)
