@@ -26,7 +26,7 @@ echo '/swapfile none swap sw 0 0' | sudo tee -a /etc/fstab
 
 ## SSH Folder Permissions
 <table>
-     <tr>
+     <tr align=center>
           <td>Path</td>
           <td>Permission</td>
      </tr>
