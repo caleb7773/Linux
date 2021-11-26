@@ -140,10 +140,12 @@ sudo reboot
 # View TCPdump to STDOUT and Output File
 > This is going to output the tcpdump output to a file and also to the screen for viewing
 ```bash
-tcpdump -w - | tee somefile | tcpdump -r -
+tcpdump -ni eth1 port 53 -w - | tee somefile | tcpdump -r -
 
 # What it does:
-#    -w - tells tcpdump to write binary data to stdout
-#    tee writes that binary data to a file AND to its own stdout
-#    -r - tells the second tcpdump to get its data from its stdin
+#    "-ni eth1" <- Grabs "eth1" interface
+#    "port 53" <- Grabs anything on port 53
+#    "-w -"  <- tells tcpdump to write binary data to stdout
+#    "tee somefile" <- writes that binary data to a file AND to its own stdout
+#    "-r -" tells the second tcpdump to get its data from its stdin
 ```
